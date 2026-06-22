@@ -1,1 +1,12 @@
 @import "tailwindcss";
+
+@theme {
+	--font-sans: var(--font-onest);
+	--font-heading: var(--font-bricolage);
+	--font-mono: var(--font-mono);
+
+	--color-tag: #fff6d3;
+	--color-muted: #B3B3B3;
+	--color-border: #e5e7eb;
+	--color-yellow: #ffce1b;
+}
