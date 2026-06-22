@@ -1,22 +1,17 @@
 const socialLinks = [
 	{
 		id: "github",
-		href: "https://github.com/yourusername",
+		href: "https://github.com/perbik",
 		label: "GitHub",
 	},
 	{
 		id: "linkedin",
-		href: "https://linkedin.com/in/yourusername",
+		href: "https://www.linkedin.com/in/fervicmarlagman/",
 		label: "LinkedIn",
 	},
 	{
-		id: "facebook",
-		href: "https://facebook.com/yourusername",
-		label: "Facebook",
-	},
-	{
 		id: "email",
-		href: "mailto:you@example.com",
+		href: "mailto:fervicmardlagman@gmail.com",
 		label: "Email",
 	},
 ] as const;
