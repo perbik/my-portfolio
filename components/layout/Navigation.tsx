@@ -17,10 +17,6 @@ const links = [
 		label: "Projects",
 	},
 	{
-		href: "/blogs",
-		label: "Blogs",
-	},
-	{
 		href: "/contact",
 		label: "Contact",
 	},
@@ -30,8 +26,8 @@ export function Navigation() {
 	const pathname = usePathname();
 
 	return (
-		<nav>
-			<ul className="flex gap-8">
+		<nav className="border border-border bg-white px-8 py-3 transition-colors duration-200">
+			<ul className="flex items-center gap-8">
 				{links.map((link) => {
 					const isActive =
 						pathname === link.href ||
@@ -41,9 +37,13 @@ export function Navigation() {
 						<li key={link.href}>
 							<Link
 								href={link.href}
-								className={`text-sm font-medium uppercase tracking-wide transition-colors ${
-									isActive ? "text-brand" : "text-zinc-400 hover:text-zinc-900"
-								}`}
+								className={[
+									"font-['Onest',sans-serif] text-[13px] uppercase",
+									"transition-colors duration-200",
+									isActive
+										? "font-semibold text-yellow"
+										: "font-medium text-muted hover:text-black",
+								].join(" ")}
 							>
 								{link.label}
 							</Link>
