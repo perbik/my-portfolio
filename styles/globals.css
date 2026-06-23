@@ -6,7 +6,18 @@
 	--font-mono: var(--font-mono);
 
 	--color-tag: #fff6d3;
-	--color-muted: #B3B3B3;
+	--color-muted: #b3b3b3;
 	--color-border: #e5e7eb;
 	--color-yellow: #ffce1b;
+
+	--animate-marquee: marquee 25s linear infinite;
+
+	@keyframes marquee {
+		from {
+			transform: translateX(0%);
+		}
+		to {
+			transform: translateX(-100%);
+		}
+	}
 }
