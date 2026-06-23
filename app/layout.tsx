@@ -25,8 +25,7 @@ export const metadata: Metadata = {
 		default: "Fervicmar Portfolio",
 		template: "%s | Fervicmar Portfolio",
 	},
-	description:
-		"Portfolio of Fervicmar",
+	description: "Portfolio of Fervicmar",
 };
 
 export default function RootLayout({
