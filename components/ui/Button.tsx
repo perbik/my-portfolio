@@ -27,8 +27,8 @@ export function Button({
 
 	const content = (
 		<>
-			{icon ? <span className="inline-flex items-center">{icon}</span> : null}
 			{children}
+			{icon ? <span className="inline-flex items-center">{icon}</span> : null}
 		</>
 	);
 
