@@ -44,9 +44,11 @@ export function ProjectCard({
 				</CardDescription>
 
 				<div className="mt-4 flex flex-wrap gap-2">
-					{badges.map((badge) => (
+					{badges.slice(0, 3).map((badge) => (
 						<Badge key={badge}>{badge}</Badge>
 					))}
+
+					{badges.length > 3 && <Badge>+{badges.length - 3}</Badge>}
 				</div>
 			</CardContent>
 		</Card>

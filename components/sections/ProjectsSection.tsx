@@ -1,18 +1,20 @@
 import Link from "next/link";
 import { ProjectCard } from "@/components/cards/ProjectCard";
+import { ArrowRightIcon } from "@/components/icons/ArrowRightIcon";
 import { projects } from "@/data/projects";
 
 export function ProjectsSection() {
 	return (
 		<section className="mx-auto max-w-7xl px-6 py-24">
-			<div className="mb-8 flex items-center justify-between">
+			<div className="mb-8 flex items-center justify-between border-b border-border pb-6">
 				<h2 className="font-heading font-bold text-5xl">Projects</h2>
 
 				<Link
 					href="/projects"
-					className="text-portfolio-muted text-sm transition hover:underline"
+					className="flex items-center gap-2 text-portfolio-muted font-sans font-semibold text-sm transition-colors hover:text-foreground"
 				>
-					ALL PROJECTS →
+					ALL PROJECTS
+					<ArrowRightIcon className="h-4 w-4" />
 				</Link>
 			</div>
 
