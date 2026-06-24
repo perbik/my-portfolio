@@ -14,7 +14,7 @@ export function PageTitle({ eyebrow, title, description }: PageTitleProps) {
 			</h1>
 
 			{description && (
-				<p className="max-w-2xl text-lg text-muted">{description}</p>
+				<p className="max-w-2xl text-lg text-portfolio-muted">{description}</p>
 			)}
 		</div>
 	);
