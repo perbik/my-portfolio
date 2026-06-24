@@ -11,7 +11,7 @@ const icons = {
 
 export function Footer() {
 	return (
-		<footer className="bg-black py-10 text-muted">
+		<footer className="bg-black py-10 text-portfolio-muted">
 			<div className="mx-auto flex max-w-7xl items-center justify-between px-6">
 				<p className="font-heading font-semibold uppercase">Fervicmar</p>
 
@@ -26,7 +26,7 @@ export function Footer() {
 								aria-label={link.label}
 								target={link.id === "email" ? undefined : "_blank"}
 								rel={link.id === "email" ? undefined : "noopener noreferrer"}
-								className="text-muted transition-colors hover:text-white"
+								className="text-portfolio-muted transition-colors hover:text-white"
 							>
 								<Icon className="size-5" />
 								<span className="sr-only">{link.label}</span>
