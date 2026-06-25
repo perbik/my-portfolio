@@ -26,7 +26,7 @@ export function Navigation() {
 	const pathname = usePathname();
 
 	return (
-		<nav className="border border-border bg-white px-8 py-3 transition-colors duration-200">
+		<nav className="border border-portfolio-border bg-white px-8 py-3 transition-colors duration-200">
 			<ul className="flex items-center gap-8">
 				{links.map((link) => {
 					const isActive =
@@ -42,7 +42,7 @@ export function Navigation() {
 									"transition-colors duration-200",
 									isActive
 										? "font-semibold text-yellow"
-										: "font-medium text-muted hover:text-black",
+										: "font-medium text-portfolio-muted hover:text-black",
 								].join(" ")}
 							>
 								{link.label}
