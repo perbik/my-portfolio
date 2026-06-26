@@ -78,7 +78,8 @@ export default async function ProjectPage({
                     src={project.image}
                     alt={project.title}
                     fill
-                    priority
+                    sizes="100vw"
+                    loading="eager"
                     className="object-cover"
                 />
             </div>
@@ -96,11 +97,13 @@ export default async function ProjectPage({
                             </Link>
                         </Button>
 
-                        <Button variant="outline" asChild>
-                            <Link href={project.live ?? "#"} target="_blank" rel="noopener noreferrer">
-                                Live Site
-                            </Link>
-                        </Button>
+                        {project.live ? (
+                            <Button variant="outline" asChild>
+                                <Link href={project.live} target="_blank" rel="noopener noreferrer">
+                                    Live Site
+                                </Link>
+                            </Button>
+                        ) : null}
                     </div>
                 </div>
 
