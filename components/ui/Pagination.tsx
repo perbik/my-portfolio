@@ -1,131 +1,140 @@
-"use client";
+import type * as React from "react";
 
-import { CaretLeftIcon, CaretRightIcon, DotsThreeIcon } from "@phosphor-icons/react"
-import type * as React from "react"
-import { Button } from "@/components/ui/Button"
-
-import { cn } from "@/lib/utils"
-
+import { cn } from "@/lib/utils";
 
 function Pagination({ className, ...props }: React.ComponentProps<"nav">) {
-    return (
-        <nav
-            aria-label="pagination"
-            data-slot="pagination"
-            className={cn("mx-auto flex w-full justify-center", className)}
-            {...props}
-        />
-    )
+	return (
+		<nav
+			aria-label="Pagination"
+			data-slot="pagination"
+			className={cn("flex w-full justify-center", className)}
+			{...props}
+		/>
+	);
 }
 
 function PaginationContent({
-    className,
-    ...props
+	className,
+	...props
 }: React.ComponentProps<"ul">) {
-    return (
-        <ul
-            data-slot="pagination-content"
-            className={cn("flex items-center gap-0.5", className)}
-            {...props}
-        />
-    )
+	return (
+		<ul
+			data-slot="pagination-content"
+			className={cn("flex flex-row items-center gap-3", className)}
+			{...props}
+		/>
+	);
 }
 
 function PaginationItem({ ...props }: React.ComponentProps<"li">) {
-    return <li data-slot="pagination-item" {...props} />
+	return <li data-slot="pagination-item" {...props} />;
 }
 
-type PaginationLinkProps = {
-    isActive?: boolean
-} & Pick<React.ComponentProps<typeof Button>, "size"> &
-    React.ComponentProps<"a">
+type PaginationLinkProps = React.ComponentProps<"a"> & {
+	isActive?: boolean;
+};
 
 function PaginationLink({
-    className,
-    isActive,
-    size = "icon",
-    ...props
+	className,
+	isActive = false,
+	...props
 }: PaginationLinkProps) {
-    return (
-        <Button
-            asChild
-            variant={isActive ? "outline" : "ghost"}
-            size={size}
-            className={cn(className)}
-        >
-            <a
-                aria-current={isActive ? "page" : undefined}
-                data-slot="pagination-link"
-                data-active={isActive}
-                {...props}
-            />
-        </Button>
-    )
+	return (
+		<a
+			aria-current={isActive ? "page" : undefined}
+			data-slot="pagination-link"
+			data-active={isActive}
+			className={cn(
+				"inline-flex size-12 items-center justify-center border-2 border-foreground bg-white font-display text-2xl leading-none text-foreground uppercase transition-[transform,box-shadow,background-color] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:bg-yellow hover:shadow-[4px_5px_0_#000] focus-visible:ring-2 focus-visible:ring-ring/50",
+				isActive && "bg-yellow shadow-[4px_5px_0_#000]",
+				className,
+			)}
+			{...props}
+		/>
+	);
 }
 
 function PaginationPrevious({
-    className,
-    text = "Previous",
-    ...props
-}: React.ComponentProps<typeof PaginationLink> & { text?: string }) {
-    return (
-        <PaginationLink
-            aria-label="Go to previous page"
-            size="default"
-            className={cn("pl-1.5!", className)}
-            {...props}
-        >
-            <CaretLeftIcon data-icon="inline-start" />
-            <span className="hidden sm:block">{text}</span>
-        </PaginationLink>
-    )
+	className,
+	href,
+	tabIndex,
+	...props
+}: React.ComponentProps<"a">) {
+	const isDisabled = href === "#";
+
+	return (
+		<PaginationLink
+			aria-disabled={isDisabled || undefined}
+			aria-label="Go to previous page"
+			className={cn(
+				"w-auto gap-2 px-4 max-[560px]:size-12 max-[560px]:px-0",
+				isDisabled && "pointer-events-none opacity-40 shadow-none",
+				className,
+			)}
+			href={href}
+			tabIndex={isDisabled ? -1 : tabIndex}
+			{...props}
+		>
+			<svg
+				aria-hidden="true"
+				className="size-4"
+				fill="none"
+				stroke="currentColor"
+				strokeLinecap="square"
+				strokeLinejoin="miter"
+				strokeWidth="3"
+				viewBox="0 0 24 24"
+			>
+				<path d="m15 19-7-7 7-7" />
+			</svg>
+			<span className="max-[560px]:sr-only">Previous</span>
+		</PaginationLink>
+	);
 }
 
 function PaginationNext({
-    className,
-    text = "Next",
-    ...props
-}: React.ComponentProps<typeof PaginationLink> & { text?: string }) {
-    return (
-        <PaginationLink
-            aria-label="Go to next page"
-            size="default"
-            className={cn("pr-1.5!", className)}
-            {...props}
-        >
-            <span className="hidden sm:block">{text}</span>
-            <CaretRightIcon data-icon="inline-end" />
-        </PaginationLink>
-    )
-}
+	className,
+	href,
+	tabIndex,
+	...props
+}: React.ComponentProps<"a">) {
+	const isDisabled = href === "#";
 
-function PaginationEllipsis({
-    className,
-    ...props
-}: React.ComponentProps<"span">) {
-    return (
-        <span
-            aria-hidden
-            data-slot="pagination-ellipsis"
-            className={cn(
-                "flex size-8 items-center justify-center [&_svg:not([class*='size-'])]:size-4",
-                className
-            )}
-            {...props}
-        >
-            <DotsThreeIcon
-            />
-            <span className="sr-only">More pages</span>
-        </span>
-    )
+	return (
+		<PaginationLink
+			aria-disabled={isDisabled || undefined}
+			aria-label="Go to next page"
+			className={cn(
+				"w-auto gap-2 px-4 max-[560px]:size-12 max-[560px]:px-0",
+				isDisabled && "pointer-events-none opacity-40 shadow-none",
+				className,
+			)}
+			href={href}
+			tabIndex={isDisabled ? -1 : tabIndex}
+			{...props}
+		>
+			<span className="max-[560px]:sr-only">Next</span>
+			<svg
+				aria-hidden="true"
+				className="size-4"
+				fill="none"
+				stroke="currentColor"
+				strokeLinecap="square"
+				strokeLinejoin="miter"
+				strokeWidth="3"
+				viewBox="0 0 24 24"
+			>
+				<path d="m9 5 7 7-7 7" />
+			</svg>
+		</PaginationLink>
+	);
 }
 
 export {
-    Pagination,
-    PaginationContent,
-    PaginationEllipsis,
-    PaginationItem,
-    PaginationLink,
-    PaginationNext,
-    PaginationPrevious,
-}
+	Pagination,
+	PaginationContent,
+	PaginationItem,
+	PaginationLink,
+	PaginationNext,
+	PaginationPrevious,
+};

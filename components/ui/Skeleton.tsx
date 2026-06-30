@@ -7,7 +7,7 @@ export function Skeleton({ className, ...props }: React.ComponentProps<"div">) {
 		<div
 			aria-hidden="true"
 			className={cn(
-				"animate-pulse bg-muted motion-reduce:animate-none",
+				"relative overflow-hidden rounded-none bg-foreground/10 after:absolute after:inset-0 after:-translate-x-full after:bg-linear-to-r after:from-transparent after:via-white/70 after:to-transparent after:animate-[skeleton-shimmer_1.6s_ease-in-out_infinite] motion-reduce:after:animate-none",
 				className,
 			)}
 			{...props}
