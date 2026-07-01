@@ -1,61 +1,49 @@
+"use client";
+
 import Link from "next/link";
 
+import { HeroDecorations } from "@/components/hero/HeroDecorations";
+import { Marquee } from "@/components/hero/Marquee";
+import { RotatingRole } from "@/components/hero/RotatingRole";
 import { ArrowRightIcon } from "@/components/icons/ArrowRightIcon";
-import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
-import { roles } from "@/data/roles";
-
-import { Marquee } from "../home/Marquee";
+import { useHeroParallax } from "@/lib/useHeroParallax";
 
 export function HeroSection() {
+	const parallax = useHeroParallax();
+
 	return (
-		<section>
-			<div className="mx-auto max-w-7xl px-6 pt-24">
-				<div>
-					<div className="font-heading">
-						<h1 className="text-5xl font-extrabold tracking-tight lg:text-7xl">
-							Hi! I&apos;m
-						</h1>
+		<section className="relative flex min-h-[calc(100vh-5rem)] flex-col overflow-hidden bg-background">
+			<HeroDecorations {...parallax} />
 
-						<h2 className="text-yellow text-6xl font-extrabold tracking-tight lg:text-9xl">
-							Fervicmar.
-						</h2>
-					</div>
+			<div className="relative z-10 mx-auto flex w-full max-w-5xl flex-1 flex-col items-center justify-center px-6 text-center">
+				<h1 className="font-display text-6xl leading-none uppercase sm:text-8xl lg:text-9xl">
+					Fervicmar Lagman
+				</h1>
 
-					<div className="mt-4 flex flex-wrap gap-3">
-						{roles.map((role) => (
-							<Badge key={role} variant="outline">
-								{role}
-							</Badge>
-						))}
-					</div>
+				<RotatingRole />
 
-					<div className="mt-8 grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
-						<p className="max-w-3xl text-lg leading-relaxed lg:text-2xl font-sans">
-							A Computer Science Student at Polytechnic University of the
-							Philippines with experience in Project Management, Software
-							Quality Assurance, and Website Development.
-						</p>
+				<p className="mt-8 max-w-3xl text-balance font-sans text-lg leading-relaxed">
+					A Computer Science student at the Polytechnic University of the
+					Philippines passionate about designing, developing, and testing modern
+					web applications.
+				</p>
 
-						<div className="flex gap-4">
-							<Button asChild>
-								<Link href="/projects">
-									View Projects
-									<ArrowRightIcon className="h-4 w-4" />
-								</Link>
-							</Button>
+				<div className="mt-16 flex flex-wrap justify-center gap-6">
+					<Button asChild size="md">
+						<Link href="/projects">
+							View Projects
+							<ArrowRightIcon className="size-4" />
+						</Link>
+					</Button>
 
-							<Button variant="outline" asChild>
-								<Link href="/about">About Me</Link>
-							</Button>
-						</div>
-					</div>
+					<Button asChild size="md" variant="secondary" className="bg-yellow">
+						<Link href="/contact">Get in Touch</Link>
+					</Button>
 				</div>
 			</div>
 
-			<div className="mt-24">
-				<Marquee />
-			</div>
+			<Marquee />
 		</section>
 	);
 }

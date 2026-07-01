@@ -15,21 +15,27 @@ export function ContactSection() {
 	}
 
 	return (
-		<section className="bg-yellow flex p-20 items-center justify-center overflow-hidden">
-			<Link
-				href="/contact"
-				onMouseEnter={() => setIsHovered(true)}
-				onMouseLeave={() => setIsHovered(false)}
-				onMouseMove={handleMouseMove}
-				className="group cursor-pointer"
+		<>
+			<section
+				data-slot="contact-cta"
+				className="relative flex min-h-80 items-center justify-center overflow-hidden border-foreground border-y-2 px-6 py-16 text-center sm:min-h-104"
 			>
-				<h2 className="font-heading text-[230px] font-extrabold leading-none text-black transition-colors duration-300 group-hover:text-white">
-					Say Hello
-				</h2>
-			</Link>
+				<Link
+					href="/contact"
+					onMouseEnter={() => setIsHovered(true)}
+					onMouseLeave={() => setIsHovered(false)}
+					onMouseMove={handleMouseMove}
+					className="group inline-flex w-fit cursor-none items-center justify-center"
+				>
+					<h2 className="font-display text-7xl leading-none text-white uppercase transition-[transform,text-shadow] duration-300 ease-out group-hover:-translate-y-1 group-hover:scale-[1.025] group-hover:[text-shadow:6px_7px_0_#111] group-focus-visible:-translate-y-1 group-focus-visible:scale-[1.025] group-focus-visible:[text-shadow:6px_7px_0_#111] motion-reduce:transition-none sm:text-9xl lg:text-[10rem]">
+						Say Hello
+					</h2>
+				</Link>
+			</section>
 
 			<div
-				className={`pointer-events-none fixed z-50 flex h-28 w-28 items-center justify-center rounded-full bg-black text-center text-xs font-bold uppercase tracking-wider text-white transition-opacity duration-200 ${
+				aria-hidden="true"
+				className={`pointer-events-none fixed z-50 flex size-28 items-center justify-center rounded-full bg-black text-center font-display text-2xl leading-none tracking-wide text-white uppercase transition-opacity duration-200 ${
 					isHovered ? "opacity-100" : "opacity-0"
 				}`}
 				style={{
@@ -38,8 +44,10 @@ export function ContactSection() {
 					transform: "translate(-50%, -50%)",
 				}}
 			>
-				Contact Me
+				Contact
+				<br />
+				Me
 			</div>
-		</section>
+		</>
 	);
 }

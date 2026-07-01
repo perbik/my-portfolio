@@ -6,12 +6,14 @@ import type * as React from "react";
 import { cn } from "@/lib/utils";
 
 const badgeVariants = cva(
-	"inline-flex items-center px-4 py-2 text-xs font-mono uppercase transition duration-200 rounded-none",
+	"inline-flex h-10 min-w-fit items-center justify-center border-2 px-4 font-display text-xl leading-none whitespace-nowrap",
 	{
 		variants: {
 			variant: {
-				default: "bg-tag text-black",
-				outline: "border border-portfolio-border bg-white text-black",
+				default: "border-[#303030] bg-[#303030] text-white",
+				secondary: "border-foreground bg-[#ffe55c] text-foreground",
+				outline: "border-foreground bg-background text-foreground",
+				blue: "border-foreground text-white",
 			},
 		},
 		defaultVariants: {
@@ -22,7 +24,7 @@ const badgeVariants = cva(
 
 function Badge({
 	className,
-	variant,
+	variant = "default",
 	asChild = false,
 	...props
 }: React.ComponentProps<"span"> &

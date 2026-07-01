@@ -17,6 +17,8 @@ type ProjectCardProps = {
 	imageSizes: string;
 	badges: string[];
 	href?: string;
+	eager?: boolean;
+	compact?: boolean;
 };
 
 export function ProjectCard({
@@ -26,37 +28,73 @@ export function ProjectCard({
 	imageSizes,
 	badges,
 	href,
+	eager = false,
+	compact = false,
 }: ProjectCardProps) {
 	const content = (
 		<Card
 			className={cn(
-				"overflow-hidden",
-				href && "group-hover:-translate-y-1 group-hover:shadow-lg",
+				"h-full w-full gap-0 overflow-hidden border-2 border-foreground bg-white py-0 shadow-[8px_10px_0_#111] ring-0 transition-transform duration-200",
+				href && "group-hover:-translate-y-1 group-focus-visible:-translate-y-1",
 			)}
 		>
-			<div className="relative h-48 w-full overflow-hidden">
+			<div
+				data-slot="card-media"
+				className={cn(
+					"relative w-full overflow-hidden border-foreground border-b-2 bg-portfolio-border",
+					compact ? "aspect-video" : "aspect-8/5",
+				)}
+			>
 				<Image
 					src={image}
 					alt={title}
 					fill
+					loading={eager ? "eager" : "lazy"}
 					sizes={imageSizes}
-					className="object-cover"
+					className="object-cover transition-transform duration-500 ease-out group-hover/card:scale-[1.03]"
 				/>
 			</div>
 
-			<CardContent>
-				<CardTitle className="font-heading font-bold">{title}</CardTitle>
+			<CardContent
+				className={cn(
+					"flex flex-col px-4 pb-4",
+					compact ? "min-h-52 pt-5" : "min-h-59 pt-7",
+				)}
+			>
+				<CardTitle className="font-display text-[2rem] leading-none uppercase">
+					{title}
+				</CardTitle>
 
-				<CardDescription className="mt-2 line-clamp-3 font-sans">
+				<CardDescription
+					className={cn(
+						"mt-3 font-sans text-base leading-[1.2] text-foreground",
+						compact ? "line-clamp-3" : "line-clamp-4",
+					)}
+				>
 					{details}
 				</CardDescription>
 
-				<div className="mt-4 flex flex-wrap gap-2">
+				<div
+					className={cn(
+						"mt-auto flex flex-wrap gap-1.5",
+						compact ? "pt-4" : "pt-5",
+					)}
+				>
 					{badges.slice(0, 3).map((badge) => (
-						<Badge key={badge}>{badge}</Badge>
+						<Badge
+							key={badge}
+							variant="blue"
+							className="h-7 min-w-19 px-2 text-sm"
+						>
+							{badge}
+						</Badge>
 					))}
 
-					{badges.length > 3 && <Badge>+{badges.length - 3}</Badge>}
+					{badges.length > 3 && (
+						<Badge variant="blue" className="h-7 min-w-19 px-2 text-sm">
+							+{badges.length - 3}
+						</Badge>
+					)}
 				</div>
 			</CardContent>
 		</Card>
@@ -67,7 +105,10 @@ export function ProjectCard({
 	}
 
 	return (
-		<Link href={href} className="group block">
+		<Link
+			href={href}
+			className="group block h-full w-full focus-visible:outline-2 focus-visible:outline-offset-4"
+		>
 			{content}
 		</Link>
 	);
