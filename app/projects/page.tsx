@@ -65,6 +65,7 @@ export default async function ProjectsPage({
                         key={project.slug}
                         title={project.title}
                         image={project.image}
+                        imageSizes="(max-width: 767px) calc(100vw - 3rem), (max-width: 1279px) calc(50vw - 2.5rem), 389px"
                         details={project.details}
                         badges={project.badges}
                         href={`/projects/${project.slug}`}

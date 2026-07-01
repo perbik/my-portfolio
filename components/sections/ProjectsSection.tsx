@@ -25,6 +25,7 @@ export function ProjectsSection() {
 						title={project.title}
 						details={project.details}
 						image={project.image}
+						imageSizes="(max-width: 767px) calc(100vw - 3rem), (max-width: 1279px) calc(33.333vw - 2.333rem), 389px"
 						badges={project.badges}
 						href={`/projects/${project.slug}`}
 					/>

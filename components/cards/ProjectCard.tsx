@@ -14,6 +14,7 @@ type ProjectCardProps = {
 	title: string;
 	details: string;
 	image: string;
+	imageSizes: string;
 	badges: string[];
 	href?: string;
 };
@@ -22,6 +23,7 @@ export function ProjectCard({
 	title,
 	details,
 	image,
+	imageSizes,
 	badges,
 	href,
 }: ProjectCardProps) {
@@ -33,7 +35,13 @@ export function ProjectCard({
 			)}
 		>
 			<div className="relative h-48 w-full overflow-hidden">
-				<Image src={image} alt={title} fill className="object-cover" />
+				<Image
+					src={image}
+					alt={title}
+					fill
+					sizes={imageSizes}
+					className="object-cover"
+				/>
 			</div>
 
 			<CardContent>
