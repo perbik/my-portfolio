@@ -9,7 +9,7 @@ type ProjectFiltersProps = {
     selected: Filter;
 };
 
-const filters: Filter[] = ["All", "Web", "Mobile"];
+const filters: Filter[] = ["All", "Web", "Mobile", "Desktop"];
 
 export function ProjectFilters({
     selected,
