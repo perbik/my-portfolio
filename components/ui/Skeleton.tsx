@@ -2,7 +2,11 @@ import type * as React from "react";
 
 import { cn } from "@/lib/utils";
 
-export function Skeleton({ className, ...props }: React.ComponentProps<"div">) {
+interface SkeletonProps extends React.ComponentProps<"div"> {
+	className?: string;
+}
+
+export function Skeleton({ className, ...props }: SkeletonProps) {
 	return (
 		<div
 			aria-hidden="true"

@@ -15,12 +15,13 @@ import { Button } from "@/components/ui/Button";
 
 import { getProjectBySlug, projects } from "@/data/projects";
 
-type ProjectPageProps = {
+interface ProjectPageProps {
 	params: Promise<{
 		slug: string;
 	}>;
-};
+}
 
+// Iterate over the projects and generate project pages based on the slug
 export async function generateStaticParams() {
 	return projects.map((project) => ({
 		slug: project.slug,
@@ -61,18 +62,24 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 					</BreadcrumbItem>
 				</BreadcrumbList>
 			</Breadcrumb>
-			<h1 className="font-heading text-5xl font-black tracking-tight md:text-7xl">
-				{project.title}
-			</h1>
+
+			<div className="flex flex-wrap items-center gap-4">
+				<h1 className="font-heading text-5xl font-black tracking-tight md:text-7xl">
+					{project.title}
+				</h1>
+
+				<Badge variant="secondary">{project.collaboration} Project</Badge>
+			</div>
 
 			<div className="relative mt-8 aspect-16/8 w-full overflow-hidden bg-muted">
 				<Image
 					src={project.image}
 					alt={project.title}
-					fill
+					width={1600}
+					height={800}
 					sizes="100vw"
 					loading="eager"
-					className="object-cover"
+					className="size-full object-cover"
 				/>
 			</div>
 
@@ -83,15 +90,17 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 					</p>
 
 					<div className="mt-10 flex flex-wrap gap-4">
-						<Button asChild>
-							<Link
-								href={project.github ?? "#"}
-								target="_blank"
-								rel="noopener noreferrer"
-							>
-								GitHub
-							</Link>
-						</Button>
+						{project.github ? (
+							<Button asChild>
+								<Link
+									href={project.github}
+									target="_blank"
+									rel="noopener noreferrer"
+								>
+									GitHub
+								</Link>
+							</Button>
+						) : null}
 
 						{project.live ? (
 							<Button variant="outline" asChild>
@@ -108,8 +117,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 				</div>
 
 				<div>
-					<p className="mb-4 font-mono text-sm uppercase tracking-widest text-muted-foreground">
-						Stack
+					<p className="mb-4 font-mono text-sm tracking-widest text-muted-foreground">
+						STACK
 					</p>
 
 					<div className="flex flex-wrap gap-3">
@@ -118,6 +127,20 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 								{badge}
 							</Badge>
 						))}
+					</div>
+
+					<div className="mt-10 border-foreground border-t-2 pt-8">
+						<p className="mb-4 font-mono text-sm tracking-widest text-muted-foreground">
+							MY ROLES
+						</p>
+
+						<div className="flex flex-wrap gap-3">
+							{project.roles.map((role) => (
+								<Badge key={role} variant="outline">
+									{role}
+								</Badge>
+							))}
+						</div>
 					</div>
 				</div>
 			</div>

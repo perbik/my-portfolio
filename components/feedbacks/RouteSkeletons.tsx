@@ -12,7 +12,15 @@ const PROJECTS = [
 const FORM_FIELDS = ["name", "email", "subject"];
 const EXPERIENCE_ITEMS = ["experience-1", "experience-2", "experience-3"];
 
-function LoadingStatus({ label }: { label: string }) {
+interface LoadingStatusProps {
+	label: string;
+}
+
+interface ProjectCardSkeletonProps {
+	compact?: boolean;
+}
+
+function LoadingStatus({ label }: LoadingStatusProps) {
 	return (
 		<p className="sr-only" role="status">
 			{label}
@@ -24,7 +32,7 @@ function PageTitleSkeleton() {
 	return (
 		<div className="space-y-5">
 			<div className="flex items-center gap-3">
-				<Skeleton className="size-4 bg-yellow after:hidden" />
+				<Skeleton className="size-4 after:hidden" />
 				<Skeleton className="h-6 w-28" />
 			</div>
 			<Skeleton className="h-16 w-full max-w-2xl sm:h-20" />
@@ -32,7 +40,7 @@ function PageTitleSkeleton() {
 	);
 }
 
-function ProjectCardSkeleton({ compact = false }: { compact?: boolean }) {
+function ProjectCardSkeleton({ compact = false }: ProjectCardSkeletonProps) {
 	return (
 		<div className="h-full overflow-hidden border-2 border-foreground bg-white shadow-[8px_10px_0_#111]">
 			<Skeleton
@@ -60,7 +68,7 @@ function FormWindowSkeleton() {
 		<div className="w-full max-w-3xl border-2 border-foreground bg-white shadow-[8px_8px_0_#111]">
 			<div className="flex h-10 items-center gap-2 border-foreground border-b-2 px-4">
 				<Skeleton className="size-3 bg-red-500 after:hidden" />
-				<Skeleton className="size-3 bg-yellow after:hidden" />
+				<Skeleton className="size-3 bg-portfolio-yellow after:hidden" />
 				<Skeleton className="size-3 bg-green-500 after:hidden" />
 				<Skeleton className="ml-2 h-3 w-32" />
 			</div>
@@ -153,7 +161,7 @@ export function AboutSkeleton() {
 				<div className="space-y-10 lg:pt-40">
 					<Skeleton className="h-8 w-40" />
 					{EXPERIENCE_ITEMS.map((item) => (
-						<div className="border-yellow border-l-2 pl-6" key={item}>
+						<div className="border-l-2 pl-6" key={item}>
 							<Skeleton className="h-4 w-24" />
 							<Skeleton className="mt-3 h-6 w-2/3" />
 							<Skeleton className="mt-3 h-4 w-full" />
@@ -218,7 +226,7 @@ export function ProjectDetailSkeleton() {
 				<Skeleton className="size-4" />
 				<Skeleton className="h-5 w-24" />
 				<Skeleton className="size-4" />
-				<Skeleton className="h-8 w-36 bg-yellow/50" />
+				<Skeleton className="h-8 w-36" />
 			</div>
 			<Skeleton className="h-16 w-full max-w-3xl sm:h-20" />
 			<Skeleton className="mt-8 aspect-16/8 w-full border-2 border-foreground/20" />

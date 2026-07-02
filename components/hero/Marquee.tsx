@@ -24,11 +24,11 @@ export function Marquee() {
 								key={`${copy}-${category}-${name}`}
 								className="flex items-center whitespace-nowrap"
 							>
-								<span className="px-6 font-display text-3xl leading-none tracking-wide text-yellow uppercase sm:px-8 sm:text-4xl">
+								<span className="px-6 font-display text-3xl leading-none tracking-wide text-portfolio-yellow uppercase sm:px-8 sm:text-4xl">
 									{name}
 								</span>
 								<span
-									className="size-2.5 rotate-45 bg-yellow sm:size-3"
+									className="size-2.5 rotate-45 bg-portfolio-yellow sm:size-3"
 									aria-hidden="true"
 								/>
 							</li>

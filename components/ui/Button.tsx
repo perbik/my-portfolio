@@ -15,7 +15,7 @@ const buttonVariants = cva(
 					"border-black bg-white text-black hover:bg-black hover:text-white",
 				outlineLight:
 					"border-white bg-transparent text-white shadow-[4px_5px_0_#ffce1b] hover:bg-white hover:text-black hover:shadow-[6px_7px_0_#ffce1b] active:shadow-[2px_2.5px_0_#ffce1b]",
-				secondary: "bg-secondary text-secondary-foreground",
+				secondary: "bg-portfolio-yellow text-secondary-foreground",
 				ghost:
 					"border-transparent bg-transparent text-foreground shadow-none hover:border-foreground hover:bg-secondary hover:text-foreground hover:shadow-[4px_5px_0_oklch(0.14_0_0)]",
 				destructive:
@@ -37,16 +37,19 @@ const buttonVariants = cva(
 	},
 );
 
+interface ButtonProps
+	extends React.ComponentProps<"button">,
+		VariantProps<typeof buttonVariants> {
+	asChild?: boolean;
+}
+
 function Button({
 	className,
 	variant = "default",
 	size = "default",
 	asChild = false,
 	...props
-}: React.ComponentProps<"button"> &
-	VariantProps<typeof buttonVariants> & {
-		asChild?: boolean;
-	}) {
+}: ButtonProps) {
 	const Comp = asChild ? Slot.Root : "button";
 
 	return (

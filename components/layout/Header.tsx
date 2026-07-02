@@ -10,7 +10,7 @@ export function Header() {
 				<Image
 					className="pointer-events-none absolute -top-5 -left-10 z-10 h-auto w-32 animate-[cloud-float_4s_ease-in-out_infinite] object-contain select-none will-change-transform [image-rendering:pixelated] motion-reduce:animate-none motion-reduce:will-change-auto md:-top-14 md:-left-20 md:w-48 lg:-top-5 lg:-left-30"
 					src="/assets/CLOUD1.webp"
-					alt=""
+					alt="Cloud"
 					width={128}
 					height={64}
 					priority
@@ -30,7 +30,7 @@ export function Header() {
 				<Image
 					className="pointer-events-none absolute -right-10 -bottom-10 z-10 h-auto w-32 animate-[cloud-float_4.6s_ease-in-out_-1.2s_infinite_reverse] object-contain select-none will-change-transform [image-rendering:pixelated] motion-reduce:animate-none motion-reduce:will-change-auto md:-right-20 md:-bottom-14 md:w-48 lg:-right-20 lg:-bottom-10"
 					src="/assets/CLOUD2.webp"
-					alt=""
+					alt="Cloud"
 					width={128}
 					height={64}
 					priority

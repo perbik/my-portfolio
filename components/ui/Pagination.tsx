@@ -2,7 +2,23 @@ import type * as React from "react";
 
 import { cn } from "@/lib/utils";
 
-function Pagination({ className, ...props }: React.ComponentProps<"nav">) {
+interface PaginationProps extends React.ComponentProps<"nav"> {
+	className?: string;
+}
+
+interface PaginationContentProps extends React.ComponentProps<"ul"> {
+	className?: string;
+}
+
+interface PaginationItemProps extends React.ComponentProps<"li"> {
+	className?: string;
+}
+
+interface PaginationDirectionProps extends React.ComponentProps<"a"> {
+	className?: string;
+}
+
+function Pagination({ className, ...props }: PaginationProps) {
 	return (
 		<nav
 			aria-label="Pagination"
@@ -13,10 +29,7 @@ function Pagination({ className, ...props }: React.ComponentProps<"nav">) {
 	);
 }
 
-function PaginationContent({
-	className,
-	...props
-}: React.ComponentProps<"ul">) {
+function PaginationContent({ className, ...props }: PaginationContentProps) {
 	return (
 		<ul
 			data-slot="pagination-content"
@@ -26,13 +39,13 @@ function PaginationContent({
 	);
 }
 
-function PaginationItem({ ...props }: React.ComponentProps<"li">) {
+function PaginationItem({ ...props }: PaginationItemProps) {
 	return <li data-slot="pagination-item" {...props} />;
 }
 
-type PaginationLinkProps = React.ComponentProps<"a"> & {
+interface PaginationLinkProps extends React.ComponentProps<"a"> {
 	isActive?: boolean;
-};
+}
 
 function PaginationLink({
 	className,
@@ -45,8 +58,8 @@ function PaginationLink({
 			data-slot="pagination-link"
 			data-active={isActive}
 			className={cn(
-				"inline-flex size-12 items-center justify-center border-2 border-foreground bg-white font-display text-2xl leading-none text-foreground uppercase transition-[transform,box-shadow,background-color] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:bg-yellow hover:shadow-[4px_5px_0_#000] focus-visible:ring-2 focus-visible:ring-ring/50",
-				isActive && "bg-yellow shadow-[4px_5px_0_#000]",
+				"inline-flex size-12 items-center justify-center border-2 border-foreground bg-white font-display text-2xl leading-none text-foreground uppercase transition-[transform,box-shadow,background-color] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:bg-portfolio-yellow hover:shadow-[4px_5px_0_#000] focus-visible:ring-2 focus-visible:ring-ring/50",
+				isActive && "bg-portfolio-yellow shadow-[4px_5px_0_#000]",
 				className,
 			)}
 			{...props}
@@ -59,7 +72,7 @@ function PaginationPrevious({
 	href,
 	tabIndex,
 	...props
-}: React.ComponentProps<"a">) {
+}: PaginationDirectionProps) {
 	const isDisabled = href === "#";
 
 	return (
@@ -97,7 +110,7 @@ function PaginationNext({
 	href,
 	tabIndex,
 	...props
-}: React.ComponentProps<"a">) {
+}: PaginationDirectionProps) {
 	const isDisabled = href === "#";
 
 	return (

@@ -29,10 +29,10 @@ const decorations = [
 	},
 ] as const;
 
-type HeroDecorationsProps = {
+interface HeroDecorationsProps {
 	x: MotionValue<number>;
 	y: MotionValue<number>;
-};
+}
 
 export function HeroDecorations({ x, y }: HeroDecorationsProps) {
 	return decorations.map(({ src, className }) => (

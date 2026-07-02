@@ -24,7 +24,7 @@ const initialState: ContactFormState = {
 };
 
 const inputStyles =
-	"h-15 border-2 border-foreground bg-white px-5 font-sans text-lg shadow-[4px_4px_0_rgba(0,0,0,0.08)] placeholder:text-muted-foreground focus-visible:border-foreground focus-visible:ring-2 focus-visible:ring-yellow/70 md:text-lg";
+	"h-15 border-2 border-foreground bg-white px-5 font-sans text-lg shadow-[4px_4px_0_rgba(0,0,0,0.08)] placeholder:text-muted-foreground focus-visible:border-foreground focus-visible:ring-2 focus-visible:ring-portfolio-yellow/70 md:text-lg";
 
 export function ContactForm() {
 	const [state, formAction] = useActionState(sendContactMessage, initialState);
@@ -48,7 +48,7 @@ export function ContactForm() {
 			<div className="flex h-10 items-center gap-3 border-foreground border-b-2 px-4">
 				<div className="flex gap-2" aria-hidden="true">
 					<span className="size-4 bg-red-500" />
-					<span className="size-4 bg-yellow" />
+					<span className="size-4 bg-portfolio-yellow" />
 					<span className="size-4 bg-green-500" />
 				</div>
 				<p className="ml-2 font-mono text-sm font-bold tracking-wide">
@@ -86,7 +86,7 @@ export function ContactForm() {
 						>
 							Email Address
 						</FieldLabel>
-						<InputGroup className="h-15 border-2 border-foreground bg-white shadow-[4px_4px_0_rgba(0,0,0,0.08)] focus-within:border-foreground focus-within:ring-2 focus-within:ring-yellow/70">
+						<InputGroup className="h-15 border-2 border-foreground bg-white shadow-[4px_4px_0_rgba(0,0,0,0.08)] focus-within:border-foreground focus-within:ring-2 focus-within:ring-portfolio-yellow/70">
 							<InputGroupInput
 								className="px-5 font-sans text-lg placeholder:text-muted-foreground md:text-lg"
 								id="contact-email"
@@ -130,7 +130,7 @@ export function ContactForm() {
 							Message
 						</FieldLabel>
 						<Textarea
-							className="min-h-40 resize-y border-2 border-foreground bg-white px-5 py-4 font-sans text-lg shadow-[4px_4px_0_rgba(0,0,0,0.08)] placeholder:text-muted-foreground focus-visible:border-foreground focus-visible:ring-2 focus-visible:ring-yellow/70 md:text-lg"
+							className="min-h-40 resize-y border-2 border-foreground bg-white px-5 py-4 font-sans text-lg shadow-[4px_4px_0_rgba(0,0,0,0.08)] placeholder:text-muted-foreground focus-visible:border-foreground focus-visible:ring-2 focus-visible:ring-portfolio-yellow/70 md:text-lg"
 							id="contact-message"
 							name="message"
 							placeholder="Type your message here..."
@@ -142,6 +142,17 @@ export function ContactForm() {
 						<FieldError errors={getFieldErrors("message")} />
 					</Field>
 				</FieldGroup>
+
+				{state.status !== "idle" && (
+					<p
+						className={`mt-6 border-2 border-foreground px-4 py-3 font-sans font-medium ${
+							state.status === "success" ? "bg-green-100" : "bg-red-100"
+						}`}
+						role={state.status === "error" ? "alert" : "status"}
+					>
+						{state.message}
+					</p>
+				)}
 
 				<div className="mt-10 flex items-end justify-between gap-6 max-[520px]:flex-col max-[520px]:items-start">
 					<SubmitButton />
