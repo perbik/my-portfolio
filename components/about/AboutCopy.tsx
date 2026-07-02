@@ -29,7 +29,7 @@ export function AboutCopy({ progress }: AboutCopyProps) {
 
 	return (
 		<div className="relative z-10">
-			<p className="mb-6 flex items-center gap-3 font-sans text-xl font-bold uppercase sm:text-2xl lg:text-3xl">
+			<p className="mb-4 flex items-center gap-3 font-sans text-xl font-bold uppercase sm:mb-6 sm:text-2xl lg:text-3xl">
 				<span
 					className="size-3 shrink-0 bg-portfolio-yellow sm:size-4"
 					aria-hidden
@@ -37,7 +37,7 @@ export function AboutCopy({ progress }: AboutCopyProps) {
 				About
 			</p>
 
-			<div className="mb-10 h-0.5 w-full max-w-md overflow-hidden bg-foreground/20">
+			<div className="mb-6 h-0.5 w-full max-w-md overflow-hidden bg-foreground/20 sm:mb-10">
 				<motion.div
 					style={{ width: shouldReduceMotion ? "100%" : progressLineWidth }}
 					className="h-full bg-foreground"
@@ -46,7 +46,7 @@ export function AboutCopy({ progress }: AboutCopyProps) {
 
 			<h2
 				aria-label="The person behind the commits."
-				className="max-w-2xl font-display text-5xl leading-[0.88] uppercase sm:text-6xl lg:text-8xl"
+				className="max-w-2xl font-display text-4xl leading-[0.9] uppercase min-[380px]:text-5xl sm:text-6xl lg:text-8xl"
 			>
 				<span aria-hidden="true">
 					<span className="block">
@@ -68,7 +68,7 @@ export function AboutCopy({ progress }: AboutCopyProps) {
 				</span>
 			</h2>
 
-			<p className="mt-8 max-w-2xl font-sans text-lg font-semibold leading-relaxed sm:text-xl">
+			<p className="mt-5 max-w-2xl font-sans text-base font-semibold leading-relaxed sm:mt-8 sm:text-xl">
 				<span className="sr-only">{description}</span>
 				<span aria-hidden="true">
 					<ScrollRevealWords
@@ -84,7 +84,7 @@ export function AboutCopy({ progress }: AboutCopyProps) {
 				asChild
 				size="md"
 				variant="secondary"
-				className="mt-10 bg-portfolio-yellow"
+				className="mt-7 bg-portfolio-yellow sm:mt-10"
 			>
 				<Link href="/about">Learn More</Link>
 			</Button>

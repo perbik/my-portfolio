@@ -37,7 +37,7 @@ export function ProjectCard({
 	const content = (
 		<Card
 			className={cn(
-				"h-full w-full gap-0 overflow-hidden border-2 border-foreground bg-white py-0 shadow-[8px_10px_0_#111] ring-0 transition-transform duration-200",
+				"h-full w-full gap-0 overflow-hidden border-2 border-foreground bg-white py-0 shadow-[4px_5px_0_#111] ring-0 transition-transform duration-200 sm:shadow-[8px_10px_0_#111]",
 				href && "group-hover:-translate-y-1 group-focus-visible:-translate-y-1",
 			)}
 		>
@@ -50,7 +50,7 @@ export function ProjectCard({
 			>
 				<Badge
 					variant="secondary"
-					className="absolute top-3 right-3 z-10 h-8 px-3 text-base shadow-[3px_3px_0_#111]"
+					className="absolute top-2 right-2 z-10 h-7 px-2 text-sm shadow-[3px_3px_0_#111] sm:top-3 sm:right-3 sm:h-8 sm:px-3 sm:text-base"
 				>
 					{collaboration} Project
 				</Badge>
@@ -69,10 +69,12 @@ export function ProjectCard({
 			<CardContent
 				className={cn(
 					"flex flex-col px-4 pb-4",
-					compact ? "min-h-52 pt-5" : "min-h-59 pt-7",
+					compact
+						? "min-h-48 pt-5 sm:min-h-52"
+						: "min-h-52 pt-5 sm:min-h-59 sm:pt-7",
 				)}
 			>
-				<CardTitle className="font-display text-[2rem] leading-none uppercase">
+				<CardTitle className="wrap-break-word font-display text-[1.75rem] leading-none uppercase sm:text-[2rem]">
 					{title}
 				</CardTitle>
 

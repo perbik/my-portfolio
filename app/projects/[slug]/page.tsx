@@ -38,7 +38,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 	}
 
 	return (
-		<div className="mx-auto max-w-7xl px-6 pt-10 pb-16">
+		<div className="mx-auto max-w-7xl px-4 pt-6 pb-14 sm:px-6 sm:pt-10 sm:pb-16">
 			<Breadcrumb className="mb-8">
 				<BreadcrumbList>
 					<BreadcrumbItem>
@@ -63,15 +63,15 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 				</BreadcrumbList>
 			</Breadcrumb>
 
-			<div className="flex flex-wrap items-center gap-4">
-				<h1 className="font-heading text-5xl font-black tracking-tight md:text-7xl">
+			<div className="flex flex-wrap items-center gap-3 sm:gap-4">
+				<h1 className="wrap-break-word min-w-0 font-heading text-4xl font-black tracking-tight sm:text-5xl md:text-7xl">
 					{project.title}
 				</h1>
 
 				<Badge variant="secondary">{project.collaboration} Project</Badge>
 			</div>
 
-			<div className="relative mt-8 aspect-16/8 w-full overflow-hidden bg-muted">
+			<div className="relative mt-6 aspect-4/3 w-full overflow-hidden bg-muted sm:mt-8 sm:aspect-16/8">
 				<Image
 					src={project.image}
 					alt={project.title}
@@ -83,9 +83,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 				/>
 			</div>
 
-			<div className="mt-16 grid gap-16 lg:grid-cols-[2fr_1fr]">
+			<div className="mt-10 grid gap-10 sm:mt-16 sm:gap-16 lg:grid-cols-[2fr_1fr]">
 				<div>
-					<p className="text-lg text-muted-foreground font-sans text-justify">
+					<p className="font-sans text-base leading-relaxed text-muted-foreground sm:text-lg sm:text-justify">
 						{project.details}
 					</p>
 

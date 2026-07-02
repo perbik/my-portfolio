@@ -50,7 +50,7 @@ function ProjectsContent({ searchParams }: ProjectsPageProps) {
 	);
 
 	return (
-		<div className="mx-auto max-w-7xl px-6 pt-10 pb-16">
+		<div className="mx-auto max-w-7xl px-4 pt-6 pb-14 sm:px-6 sm:pt-10 sm:pb-16">
 			<div className="mb-12">
 				<PageTitle eyebrow="Works" title="Project Showcase." />
 			</div>
@@ -59,7 +59,7 @@ function ProjectsContent({ searchParams }: ProjectsPageProps) {
 				<ProjectFilters selected={selectedCategory} />
 			</div>
 
-			<div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+			<div className="grid gap-7 sm:gap-8 md:grid-cols-2 xl:grid-cols-3">
 				{paginatedProjects.map((project) => (
 					<ProjectCard
 						key={project.slug}

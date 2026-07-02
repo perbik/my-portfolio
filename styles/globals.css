@@ -173,6 +173,7 @@ html {
 	cursor:
 		url("/assets/CURSOR.png") 2 2,
 		auto;
+	overflow-x: clip;
 }
 
 @layer base {
@@ -182,6 +183,8 @@ html {
 	}
 	body {
 		@apply bg-background text-foreground;
+		min-width: 320px;
+		overflow-x: clip;
 	}
 	html {
 		@apply font-mono;

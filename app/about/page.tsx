@@ -9,13 +9,13 @@ import { PageTitle } from "@/components/ui/PageTitle";
 export default function AboutPage() {
 	return (
 		<>
-			<section className="mx-auto max-w-7xl px-6 pt-10 pb-20">
-				<div className="grid gap-20 lg:grid-cols-[1.2fr_0.8fr]">
+			<section className="mx-auto max-w-7xl px-4 pt-6 pb-16 sm:px-6 sm:pt-10 sm:pb-20">
+				<div className="grid gap-14 sm:gap-20 lg:grid-cols-[1.2fr_0.8fr]">
 					{/* Left Column - About and Skills */}
 					<div className="space-y-8">
 						<PageTitle eyebrow="About" title="PM.QA.Engineer." />
 
-						<div className="font-sans max-w-2xl space-y-8 text-lg leading-relaxed text-portfolio-muted">
+						<div className="max-w-2xl space-y-6 font-sans text-base leading-relaxed text-portfolio-muted sm:space-y-8 sm:text-lg">
 							<p>
 								I'm Fervicmar — you can call me Ferv. I'm currently a 4th year
 								Computer Science student from PUP-Manila. I have hands-on
