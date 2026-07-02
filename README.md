@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Fervicmar Lagman — Portfolio
 
-## Getting Started
+A personal portfolio showcasing my work, experience, and journey across project management, software quality assurance, and software engineering.
 
-First, run the development server:
+## About the project
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+This portfolio presents my background, technical skills, internship experience, and selected projects. Its visual direction combines bold typography, pixel-inspired artwork, playful motion, and a clean editorial layout.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The interface was first explored and visualized in **Figma** and **Figma Make**, then translated into a responsive, accessible website. Pixel-art assets were created with **Aseprite**.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Animated hero with parallax decorations and rotating roles
+- Scroll-based reveals and motion with reduced-motion support
+- Project showcase with category filters, pagination, and individual project pages
+- About page with skills and professional experience
+- Responsive layouts
+- Contact form with server-side validation and email delivery
+- Loading skeletons, route-level error states, and toast feedback
 
-## Learn More
+## Built with
 
-To learn more about Next.js, take a look at the following resources:
+### Core
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [Next.js 16](https://nextjs.org/) with the App Router and Turbopack
+- [React 19](https://react.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS 4](https://tailwindcss.com/)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### UI and interaction
 
-## Deploy on Vercel
+- [Motion](https://motion.dev/) for animations, parallax, and scroll interactions
+- [Radix UI](https://www.radix-ui.com/) and [shadcn](https://ui.shadcn.com/) patterns for reusable UI primitives
+- [Phosphor Icons](https://phosphoricons.com/) and React Icons
+- [Sonner](https://sonner.emilkowal.ski/) for toast notifications
+- `next/font` with Onest, Bricolage Grotesque, Jersey 10, and JetBrains Mono
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Forms and email
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [React Hook Form](https://react-hook-form.com/)
+- [Zod](https://zod.dev/) for server-side form validation
+- [Resend](https://resend.com/) and React Email for contact-form delivery
+
+### Design and development tools
+
+- Figma for visual exploration and layout planning
+- Aseprite for pixel-art assets
+- Biome for formatting and linting
+- Git for version control
+- pnpm for package management
+
+## Contact
+
+- [GitHub](https://github.com/perbik)
+- [LinkedIn](https://www.linkedin.com/in/fervicmarlagman/)
+- [Email](mailto:fervicmardlagman@gmail.com)
