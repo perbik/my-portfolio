@@ -44,19 +44,23 @@ export function ContactForm() {
 	}
 
 	return (
-		<div className="w-full max-w-3xl border-2 border-foreground bg-background shadow-[8px_8px_0_#000]">
+		<div className="w-full max-w-3xl border-2 border-foreground bg-background shadow-[4px_5px_0_#000] sm:shadow-[8px_8px_0_#000]">
 			<div className="flex h-10 items-center gap-3 border-foreground border-b-2 px-4">
 				<div className="flex gap-2" aria-hidden="true">
-					<span className="size-4 bg-red-500" />
-					<span className="size-4 bg-portfolio-yellow" />
-					<span className="size-4 bg-green-500" />
+					<span className="size-3 bg-red-500 sm:size-4" />
+					<span className="size-3 bg-portfolio-yellow sm:size-4" />
+					<span className="size-3 bg-green-500 sm:size-4" />
 				</div>
-				<p className="ml-2 font-mono text-sm font-bold tracking-wide">
+				<p className="ml-1 truncate font-mono text-xs font-bold tracking-wide sm:ml-2 sm:text-sm">
 					Send me a message!
 				</p>
 			</div>
 
-			<form ref={formRef} action={formAction} className="p-8 max-[600px]:p-5">
+			<form
+				ref={formRef}
+				action={formAction}
+				className="p-4 min-[380px]:p-5 sm:p-8"
+			>
 				<FieldGroup className="gap-5">
 					<Field data-invalid={Boolean(state.fieldErrors?.name)}>
 						<FieldLabel
@@ -154,7 +158,7 @@ export function ContactForm() {
 					</p>
 				)}
 
-				<div className="mt-10 flex items-end justify-between gap-6 max-[520px]:flex-col max-[520px]:items-start">
+				<div className="mt-8 flex items-end justify-between gap-6 max-[520px]:flex-col max-[520px]:items-stretch sm:mt-10">
 					<SubmitButton />
 				</div>
 			</form>

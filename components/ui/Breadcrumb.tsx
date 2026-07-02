@@ -51,7 +51,7 @@ function BreadcrumbList({ className, ...props }: BreadcrumbListProps) {
 		<ol
 			data-slot="breadcrumb-list"
 			className={cn(
-				"flex flex-wrap items-center gap-2 font-sans text-sm font-semibold tracking-wide text-muted-foreground uppercase wrap-break-word md:text-base",
+				"flex min-w-0 flex-wrap items-center gap-1.5 font-sans text-xs font-semibold tracking-wide text-muted-foreground uppercase wrap-break-word sm:gap-2 sm:text-sm md:text-base",
 				className,
 			)}
 			{...props}
@@ -63,7 +63,7 @@ function BreadcrumbItem({ className, ...props }: BreadcrumbItemProps) {
 	return (
 		<li
 			data-slot="breadcrumb-item"
-			className={cn("inline-flex items-center gap-2", className)}
+			className={cn("inline-flex min-w-0 items-center gap-2", className)}
 			{...props}
 		/>
 	);
@@ -90,7 +90,7 @@ function BreadcrumbPage({ className, ...props }: BreadcrumbPageProps) {
 			data-slot="breadcrumb-page"
 			aria-current="page"
 			className={cn(
-				"border-2 border-foreground bg-portfolio-yellow px-2 py-1 text-foreground",
+				"max-w-full wrap-break-word border-2 border-foreground bg-portfolio-yellow px-2 py-1 text-foreground",
 				className,
 			)}
 			{...props}

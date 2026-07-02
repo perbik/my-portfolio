@@ -33,7 +33,7 @@ function PaginationContent({ className, ...props }: PaginationContentProps) {
 	return (
 		<ul
 			data-slot="pagination-content"
-			className={cn("flex flex-row items-center gap-3", className)}
+			className={cn("flex flex-row items-center gap-1.5 sm:gap-3", className)}
 			{...props}
 		/>
 	);
@@ -58,7 +58,7 @@ function PaginationLink({
 			data-slot="pagination-link"
 			data-active={isActive}
 			className={cn(
-				"inline-flex size-12 items-center justify-center border-2 border-foreground bg-white font-display text-2xl leading-none text-foreground uppercase transition-[transform,box-shadow,background-color] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:bg-portfolio-yellow hover:shadow-[4px_5px_0_#000] focus-visible:ring-2 focus-visible:ring-ring/50",
+				"inline-flex size-10 items-center justify-center border-2 border-foreground bg-white font-display text-xl leading-none text-foreground uppercase transition-[transform,box-shadow,background-color] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:bg-portfolio-yellow hover:shadow-[4px_5px_0_#000] focus-visible:ring-2 focus-visible:ring-ring/50 sm:size-12 sm:text-2xl",
 				isActive && "bg-portfolio-yellow shadow-[4px_5px_0_#000]",
 				className,
 			)}
@@ -80,7 +80,7 @@ function PaginationPrevious({
 			aria-disabled={isDisabled || undefined}
 			aria-label="Go to previous page"
 			className={cn(
-				"w-auto gap-2 px-4 max-[560px]:size-12 max-[560px]:px-0",
+				"w-auto gap-2 px-4 max-[560px]:size-10 max-[560px]:px-0 sm:max-[560px]:size-12",
 				isDisabled && "pointer-events-none opacity-40 shadow-none",
 				className,
 			)}
@@ -118,7 +118,7 @@ function PaginationNext({
 			aria-disabled={isDisabled || undefined}
 			aria-label="Go to next page"
 			className={cn(
-				"w-auto gap-2 px-4 max-[560px]:size-12 max-[560px]:px-0",
+				"w-auto gap-2 px-4 max-[560px]:size-10 max-[560px]:px-0 sm:max-[560px]:size-12",
 				isDisabled && "pointer-events-none opacity-40 shadow-none",
 				className,
 			)}

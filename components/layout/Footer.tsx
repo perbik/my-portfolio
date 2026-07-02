@@ -12,7 +12,7 @@ const icons = {
 export function Footer() {
 	return (
 		<footer className="bg-black py-10 text-portfolio-muted">
-			<div className="mx-auto flex max-w-7xl items-center justify-between px-6">
+			<div className="mx-auto flex max-w-7xl flex-col items-center gap-5 px-4 text-center sm:flex-row sm:justify-between sm:px-6 sm:text-left">
 				<p className="font-heading font-semibold uppercase">Fervicmar</p>
 
 				<div className="flex items-center gap-4">

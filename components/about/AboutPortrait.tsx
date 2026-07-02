@@ -14,7 +14,7 @@ interface AboutPortraitProps {
 
 export function AboutPortrait({ progress }: AboutPortraitProps) {
 	const shouldReduceMotion = useReducedMotion();
-	const y = useTransform(progress, [0, 1], [70, -70]);
+	const y = useTransform(progress, [0, 1], [24, -24]);
 	const rotate = useTransform(progress, [0, 1], [-2, 2]);
 
 	return (
@@ -23,7 +23,7 @@ export function AboutPortrait({ progress }: AboutPortraitProps) {
 			whileInView={{ opacity: 1, scale: 1 }}
 			viewport={{ once: true, amount: 0.35 }}
 			transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-			className="relative mx-auto aspect-square w-full max-w-107.5"
+			className="pointer-events-none absolute right-4 bottom-3 aspect-square w-28 sm:right-6 sm:bottom-5 sm:w-36 md:relative md:right-auto md:bottom-auto md:mx-auto md:w-full md:max-w-107.5"
 		>
 			<motion.div
 				style={shouldReduceMotion ? undefined : { y, rotate }}

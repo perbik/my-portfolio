@@ -24,8 +24,8 @@ export function RouteError({ error, reset }: RouteErrorProps) {
 	}
 
 	return (
-		<section className="flex min-h-[70vh] items-center justify-center px-6 py-20">
-			<div className="w-full max-w-3xl border-2 border-foreground bg-white shadow-[10px_12px_0_#111]">
+		<section className="flex min-h-[70vh] items-center justify-center px-4 py-14 sm:px-6 sm:py-20">
+			<div className="w-full max-w-3xl border-2 border-foreground bg-white shadow-[5px_6px_0_#111] sm:shadow-[10px_12px_0_#111]">
 				<div className="flex h-11 items-center gap-2 border-foreground border-b-2 px-4">
 					<span className="size-3 bg-red-500" aria-hidden="true" />
 					<span className="size-3 bg-portfolio-yellow" aria-hidden="true" />
@@ -40,7 +40,7 @@ export function RouteError({ error, reset }: RouteErrorProps) {
 						<p className="mb-4 font-sans text-sm font-bold tracking-wide uppercase">
 							Something went wrong
 						</p>
-						<h1 className="font-display text-5xl leading-[0.9] uppercase sm:text-7xl">
+						<h1 className="font-display text-4xl leading-[0.9] uppercase min-[380px]:text-5xl sm:text-7xl">
 							This page hit a snag.
 						</h1>
 						<p className="mt-6 max-w-xl font-sans text-base leading-relaxed text-muted-foreground sm:text-lg">

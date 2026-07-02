@@ -15,7 +15,7 @@ export function ProjectsSection() {
 		<section className="relative overflow-hidden border-foreground border-b-2 bg-portfolio-cream">
 			<div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(20,20,20,0.035)_1px,transparent_1px),linear-gradient(to_bottom,rgba(20,20,20,0.035)_1px,transparent_1px)] bg-size-32px_32px" />
 
-			<div className="relative mx-auto max-w-7xl px-6 py-16 lg:py-20">
+			<div className="relative mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-16 lg:py-20">
 				<motion.div
 					initial={shouldReduceMotion ? false : { opacity: 0, y: 28 }}
 					whileInView={{ opacity: 1, y: 0 }}
@@ -32,7 +32,7 @@ export function ProjectsSection() {
 							Projects
 						</p>
 
-						<h2 className="max-w-4xl text-balance font-display text-5xl leading-[0.88] uppercase sm:text-6xl lg:text-7xl">
+						<h2 className="max-w-4xl text-balance font-display text-4xl leading-[0.9] uppercase min-[380px]:text-5xl sm:text-6xl lg:text-7xl">
 							Things I&apos;ve Worked On
 						</h2>
 					</div>
@@ -50,7 +50,7 @@ export function ProjectsSection() {
 					</Button>
 				</motion.div>
 
-				<div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3">
+				<div className="grid grid-cols-1 gap-8 sm:gap-10 md:grid-cols-2 lg:grid-cols-3">
 					{projects.slice(0, 3).map((project, index) => (
 						<motion.div
 							key={project.slug}

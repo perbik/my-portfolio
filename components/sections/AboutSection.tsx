@@ -16,11 +16,11 @@ export function AboutSection() {
 	return (
 		<section
 			ref={sectionRef}
-			className="relative border-foreground border-y-2 bg-background md:h-[200vh]"
+			className="relative h-[180svh] border-foreground border-y-2 bg-background sm:h-[190svh] md:h-[200vh]"
 		>
 			<div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_78%_50%,rgba(255,206,27,0.12),transparent_31%)]" />
 
-			<div className="mx-auto grid min-h-[calc(100vh-5rem)] max-w-7xl grid-cols-1 items-center gap-12 overflow-hidden px-6 py-24 md:sticky md:top-0 md:min-h-screen md:grid-cols-[1.1fr_0.9fr] md:gap-16">
+			<div className="sticky top-0 mx-auto grid h-svh max-w-7xl grid-cols-1 items-center overflow-hidden px-4 py-8 sm:px-6 sm:py-12 md:min-h-screen md:grid-cols-[1.1fr_0.9fr] md:gap-16 md:py-24">
 				<AboutCopy progress={scrollYProgress} />
 				<AboutPortrait progress={scrollYProgress} />
 			</div>
