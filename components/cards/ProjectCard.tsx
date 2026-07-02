@@ -8,18 +8,20 @@ import {
 	CardDescription,
 	CardTitle,
 } from "@/components/ui/Card";
+import type { ProjectCollaboration } from "@/data/projects";
 import { cn } from "@/lib/utils";
 
-type ProjectCardProps = {
+interface ProjectCardProps {
 	title: string;
 	details: string;
 	image: string;
 	imageSizes: string;
 	badges: string[];
+	collaboration: ProjectCollaboration;
 	href?: string;
 	eager?: boolean;
 	compact?: boolean;
-};
+}
 
 export function ProjectCard({
 	title,
@@ -27,6 +29,7 @@ export function ProjectCard({
 	image,
 	imageSizes,
 	badges,
+	collaboration,
 	href,
 	eager = false,
 	compact = false,
@@ -45,13 +48,21 @@ export function ProjectCard({
 					compact ? "aspect-video" : "aspect-8/5",
 				)}
 			>
+				<Badge
+					variant="secondary"
+					className="absolute top-3 right-3 z-10 h-8 px-3 text-base shadow-[3px_3px_0_#111]"
+				>
+					{collaboration} Project
+				</Badge>
+
 				<Image
 					src={image}
 					alt={title}
-					fill
+					width={800}
+					height={500}
 					loading={eager ? "eager" : "lazy"}
 					sizes={imageSizes}
-					className="object-cover transition-transform duration-500 ease-out group-hover/card:scale-[1.03]"
+					className="size-full object-cover transition-transform duration-500 ease-out group-hover/card:scale-[1.03]"
 				/>
 			</div>
 

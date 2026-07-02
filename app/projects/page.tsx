@@ -1,4 +1,7 @@
+import { Suspense, use } from "react";
+
 import { ProjectCard } from "@/components/cards/ProjectCard";
+import { ProjectsSkeleton } from "@/components/feedbacks/RouteSkeletons";
 import { ProjectFilters } from "@/components/projects/ProjectFilters";
 import { PageTitle } from "@/components/ui/PageTitle";
 import {
@@ -9,31 +12,35 @@ import {
 	PaginationNext,
 	PaginationPrevious,
 } from "@/components/ui/Pagination";
-import { projects } from "@/data/projects";
+import { getProjectsByCategory, type ProjectCategory } from "@/data/projects";
 
 const PROJECTS_PER_PAGE = 6;
 
-type ProjectsPageProps = {
+interface ProjectsPageProps {
 	searchParams: Promise<{
 		page?: string;
-		category?: "All" | "Web" | "Mobile";
+		category?: "All" | ProjectCategory;
 	}>;
-};
+}
 
-// lipat
 export default async function ProjectsPage({
 	searchParams,
 }: ProjectsPageProps) {
-	const { page, category } = await searchParams;
+	return (
+		<Suspense fallback={<ProjectsSkeleton />}>
+			<ProjectsContent searchParams={searchParams} />
+		</Suspense>
+	);
+}
+
+function ProjectsContent({ searchParams }: ProjectsPageProps) {
+	const { page, category } = use(searchParams);
 
 	const selectedCategory = category ?? "All";
 
 	const currentPage = Math.max(Number(page) || 1, 1);
 
-	const filteredProjects =
-		selectedCategory === "All"
-			? projects
-			: projects.filter((project) => project.category === selectedCategory);
+	const filteredProjects = getProjectsByCategory(selectedCategory);
 
 	const totalPages = Math.ceil(filteredProjects.length / PROJECTS_PER_PAGE);
 
@@ -61,6 +68,7 @@ export default async function ProjectsPage({
 						imageSizes="(max-width: 767px) calc(100vw - 3rem), (max-width: 1279px) calc(50vw - 2.5rem), 389px"
 						details={project.details}
 						badges={project.badges}
+						collaboration={project.collaboration}
 						href={`/projects/${project.slug}`}
 					/>
 				))}

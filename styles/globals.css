@@ -26,12 +26,11 @@
 	--font-display: var(--font-jersey-10);
 	--font-mono: var(--font-mono);
 
-	--color-tag: #fff6d3;
 	--color-portfolio-muted: #b3b3b3;
 	--color-portfolio-border: #e5e7eb;
 	--color-portfolio-cream: #f3f0e7;
 	--color-portfolio-sky: #528ed9;
-	--color-yellow: #ffce1b;
+	--color-portfolio-yellow: #ffce1b;
 	--color-portfolio-blue: #72a0df;
 
 	--animate-marquee: marquee 25s linear infinite;

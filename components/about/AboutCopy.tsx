@@ -12,13 +12,12 @@ import { Button } from "@/components/ui/Button";
 
 import { ScrollRevealWords } from "./ScrollRevealWords";
 
-const heading = "The person behind the commits.";
 const description =
 	"Every project I build reflects a journey through Software Engineering, Project Management, and Software Quality Assurance—learning how great products come together.";
 
-type AboutCopyProps = {
+interface AboutCopyProps {
 	progress: MotionValue<number>;
-};
+}
 
 export function AboutCopy({ progress }: AboutCopyProps) {
 	const shouldReduceMotion = useReducedMotion();
@@ -31,7 +30,10 @@ export function AboutCopy({ progress }: AboutCopyProps) {
 	return (
 		<div className="relative z-10">
 			<p className="mb-6 flex items-center gap-3 font-sans text-xl font-bold uppercase sm:text-2xl lg:text-3xl">
-				<span className="size-3 shrink-0 bg-yellow sm:size-4" aria-hidden />
+				<span
+					className="size-3 shrink-0 bg-portfolio-yellow sm:size-4"
+					aria-hidden
+				/>
 				About
 			</p>
 
@@ -43,7 +45,7 @@ export function AboutCopy({ progress }: AboutCopyProps) {
 			</div>
 
 			<h2
-				aria-label={heading}
+				aria-label="The person behind the commits."
 				className="max-w-2xl font-display text-5xl leading-[0.88] uppercase sm:text-6xl lg:text-8xl"
 			>
 				<span aria-hidden="true">
@@ -78,7 +80,12 @@ export function AboutCopy({ progress }: AboutCopyProps) {
 				</span>
 			</p>
 
-			<Button asChild size="md" variant="secondary" className="mt-10 bg-yellow">
+			<Button
+				asChild
+				size="md"
+				variant="secondary"
+				className="mt-10 bg-portfolio-yellow"
+			>
 				<Link href="/about">Learn More</Link>
 			</Button>
 		</div>

@@ -26,7 +26,7 @@ export function ProjectsSection() {
 					<div>
 						<p className="mb-6 flex items-center gap-3 font-sans text-xl font-bold uppercase sm:text-2xl lg:text-3xl">
 							<span
-								className="size-3 shrink-0 bg-yellow sm:size-4"
+								className="size-3 shrink-0 bg-portfolio-yellow sm:size-4"
 								aria-hidden
 							/>
 							Projects
@@ -41,7 +41,7 @@ export function ProjectsSection() {
 						asChild
 						size="md"
 						variant="secondary"
-						className="shrink-0 bg-yellow"
+						className="shrink-0 bg-portfolio-yellow"
 					>
 						<Link href="/projects">
 							View All
@@ -85,6 +85,7 @@ export function ProjectsSection() {
 								image={project.image}
 								imageSizes="(max-width: 767px) calc(100vw - 3rem), (max-width: 1023px) calc(50vw - 2.5rem), 389px"
 								badges={project.badges}
+								collaboration={project.collaboration}
 								href={`/projects/${project.slug}`}
 								compact
 							/>

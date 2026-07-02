@@ -38,7 +38,7 @@ export async function sendContactMessage(
 		const resend = new Resend(apiKey);
 		const { name, email, subject, message } = result.data;
 		const { error } = await resend.emails.send({
-			from: "Portfolio <onboarding@resend.dev>",
+			from: "Portfolio <fervicmar-portfolio@resend.dev>",
 			to: ["fervicmardlagman@gmail.com"],
 			replyTo: email,
 			subject,
