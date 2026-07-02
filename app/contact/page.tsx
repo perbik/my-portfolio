@@ -10,7 +10,7 @@ export default function ContactPage() {
 			<PageTitle eyebrow="Contact" title="Let's Connect." />
 
 			<div className="mt-10 grid gap-16 lg:grid-cols-[minmax(0,2fr)_280px]">
-				{/* Left Column */}
+				{/* Left Column - Form */}
 				<div className="space-y-12">
 					<div className="max-w-3xl text-lg leading-relaxed text-portfolio-muted text-justify">
 						<p>
@@ -23,7 +23,7 @@ export default function ContactPage() {
 					<ContactForm />
 				</div>
 
-				{/* Right Column */}
+				{/* Right Column - Links */}
 				<aside className="space-y-6">
 					<ContactInformationSection />
 				</aside>

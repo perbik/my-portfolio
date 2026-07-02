@@ -41,11 +41,11 @@ export const metadata: Metadata = {
 	description: "Portfolio of Fervicmar",
 };
 
-export default function RootLayout({
-	children,
-}: Readonly<{
+interface RootLayoutProps {
 	children: React.ReactNode;
-}>) {
+}
+
+export default function RootLayout({ children }: Readonly<RootLayoutProps>) {
 	return (
 		<html
 			lang="en"

@@ -4,10 +4,11 @@ import type * as React from "react";
 
 import { cn } from "@/lib/utils";
 
-function Label({
-	className,
-	...props
-}: React.ComponentProps<typeof LabelPrimitive.Root>) {
+interface LabelProps extends React.ComponentProps<typeof LabelPrimitive.Root> {
+	className?: string;
+}
+
+function Label({ className, ...props }: LabelProps) {
 	return (
 		<LabelPrimitive.Root
 			data-slot="label"

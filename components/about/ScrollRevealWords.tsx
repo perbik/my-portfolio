@@ -7,18 +7,18 @@ import {
 	useTransform,
 } from "motion/react";
 
-type ScrollRevealWordsProps = {
+interface ScrollRevealWordsProps {
 	progress: MotionValue<number>;
 	text: string;
 	start: number;
 	end: number;
-};
+}
 
-type RevealWordProps = Omit<ScrollRevealWordsProps, "text"> & {
+interface RevealWordProps extends Omit<ScrollRevealWordsProps, "text"> {
 	word: string;
 	index: number;
 	total: number;
-};
+}
 
 function RevealWord({
 	progress,

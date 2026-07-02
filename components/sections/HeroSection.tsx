@@ -37,7 +37,12 @@ export function HeroSection() {
 						</Link>
 					</Button>
 
-					<Button asChild size="md" variant="secondary" className="bg-yellow">
+					<Button
+						asChild
+						size="md"
+						variant="secondary"
+						className="bg-portfolio-yellow"
+					>
 						<Link href="/contact">Get in Touch</Link>
 					</Button>
 				</div>

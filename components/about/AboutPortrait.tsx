@@ -8,9 +8,9 @@ import {
 } from "motion/react";
 import Image from "next/image";
 
-type AboutPortraitProps = {
+interface AboutPortraitProps {
 	progress: MotionValue<number>;
-};
+}
 
 export function AboutPortrait({ progress }: AboutPortraitProps) {
 	const shouldReduceMotion = useReducedMotion();
@@ -23,7 +23,7 @@ export function AboutPortrait({ progress }: AboutPortraitProps) {
 			whileInView={{ opacity: 1, scale: 1 }}
 			viewport={{ once: true, amount: 0.35 }}
 			transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-			className="relative mx-auto aspect-square w-full max-w-[26.875rem]"
+			className="relative mx-auto aspect-square w-full max-w-107.5"
 		>
 			<motion.div
 				style={shouldReduceMotion ? undefined : { y, rotate }}

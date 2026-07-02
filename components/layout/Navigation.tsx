@@ -35,7 +35,7 @@ export function Navigation() {
 									<Image
 										className="size-6 object-contain [image-rendering:pixelated] lg:size-7"
 										src="/assets/RIGHTARROW.webp"
-										alt=""
+										alt="Right Arrow"
 										width={50}
 										height={50}
 										unoptimized

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { GitHubIcon } from "@/components/icons/GitHubIcon";
 import { LinkedInIcon } from "@/components/icons/LinkedInIcon";
 import { MailIcon } from "@/components/icons/MailIcon";
-import socialLinks from "@/lib/social-links";
+import socialLinks from "@/data/social-links";
 
 const icons = {
 	github: GitHubIcon,
