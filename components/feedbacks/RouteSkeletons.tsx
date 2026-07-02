@@ -42,7 +42,7 @@ function PageTitleSkeleton() {
 
 function ProjectCardSkeleton({ compact = false }: ProjectCardSkeletonProps) {
 	return (
-		<div className="h-full overflow-hidden border-2 border-foreground bg-white shadow-[8px_10px_0_#111]">
+		<div className="h-full overflow-hidden border-2 border-foreground bg-white shadow-[4px_5px_0_#111] sm:shadow-[8px_10px_0_#111]">
 			<Skeleton
 				className={compact ? "aspect-video w-full" : "aspect-8/5 w-full"}
 			/>
@@ -65,7 +65,7 @@ function ProjectCardSkeleton({ compact = false }: ProjectCardSkeletonProps) {
 
 function FormWindowSkeleton() {
 	return (
-		<div className="w-full max-w-3xl border-2 border-foreground bg-white shadow-[8px_8px_0_#111]">
+		<div className="w-full max-w-3xl border-2 border-foreground bg-white shadow-[4px_5px_0_#111] sm:shadow-[8px_8px_0_#111]">
 			<div className="flex h-10 items-center gap-2 border-foreground border-b-2 px-4">
 				<Skeleton className="size-3 bg-red-500 after:hidden" />
 				<Skeleton className="size-3 bg-portfolio-yellow after:hidden" />
@@ -93,7 +93,7 @@ export function HomeSkeleton() {
 	return (
 		<>
 			<LoadingStatus label="Loading home page" />
-			<section className="flex min-h-[65vh] items-center justify-center px-6 py-16 text-center">
+			<section className="flex min-h-[65vh] items-center justify-center px-4 py-14 text-center sm:px-6 sm:py-16">
 				<div className="flex w-full max-w-4xl flex-col items-center">
 					<Skeleton className="h-20 w-full max-w-3xl sm:h-28" />
 					<Skeleton className="mt-8 h-7 w-56" />
@@ -101,15 +101,15 @@ export function HomeSkeleton() {
 						<Skeleton className="mx-auto h-5 w-full" />
 						<Skeleton className="mx-auto h-5 w-4/5" />
 					</div>
-					<div className="mt-12 flex gap-5">
-						<Skeleton className="h-12 w-40 border-2 border-foreground/20" />
-						<Skeleton className="h-12 w-36 border-2 border-foreground/20" />
+					<div className="mt-12 flex w-full max-w-xs flex-col gap-4 min-[420px]:w-auto min-[420px]:max-w-none min-[420px]:flex-row min-[420px]:gap-5">
+						<Skeleton className="h-12 w-full border-2 border-foreground/20 min-[420px]:w-40" />
+						<Skeleton className="h-12 w-full border-2 border-foreground/20 min-[420px]:w-36" />
 					</div>
 				</div>
 			</section>
 			<Skeleton className="h-16 w-full bg-foreground after:via-white/20" />
 
-			<section className="border-foreground border-y-2 px-6 py-20">
+			<section className="border-foreground border-y-2 px-4 py-16 sm:px-6 sm:py-20">
 				<div className="mx-auto grid max-w-7xl items-center gap-12 md:grid-cols-2">
 					<div>
 						<Skeleton className="h-7 w-28" />
@@ -122,7 +122,7 @@ export function HomeSkeleton() {
 				</div>
 			</section>
 
-			<section className="bg-portfolio-cream px-6 py-16">
+			<section className="bg-portfolio-cream px-4 py-14 sm:px-6 sm:py-16">
 				<div className="mx-auto max-w-7xl">
 					<Skeleton className="h-6 w-32" />
 					<Skeleton className="mt-5 h-16 w-full max-w-2xl" />
@@ -139,7 +139,7 @@ export function HomeSkeleton() {
 
 export function AboutSkeleton() {
 	return (
-		<section className="mx-auto max-w-7xl px-6 pt-10 pb-20">
+		<section className="mx-auto max-w-7xl px-4 pt-6 pb-16 sm:px-6 sm:pt-10 sm:pb-20">
 			<LoadingStatus label="Loading about page" />
 			<div className="grid gap-20 lg:grid-cols-[1.2fr_0.8fr]">
 				<div>
@@ -153,7 +153,7 @@ export function AboutSkeleton() {
 					</div>
 					<Skeleton className="mt-10 h-12 w-52 border-2 border-foreground/20" />
 					<Skeleton className="mt-16 h-8 w-44" />
-					<div className="mt-8 grid grid-cols-2 gap-12">
+					<div className="mt-8 grid grid-cols-1 gap-8 min-[420px]:grid-cols-2 min-[420px]:gap-12">
 						<Skeleton className="h-36 w-full" />
 						<Skeleton className="h-36 w-full" />
 					</div>
@@ -176,7 +176,7 @@ export function AboutSkeleton() {
 
 export function ContactSkeleton() {
 	return (
-		<section className="mx-auto max-w-7xl px-6 pt-10 pb-16">
+		<section className="mx-auto max-w-7xl px-4 pt-6 pb-14 sm:px-6 sm:pt-10 sm:pb-16">
 			<LoadingStatus label="Loading contact page" />
 			<PageTitleSkeleton />
 			<div className="mt-10 grid gap-16 lg:grid-cols-[minmax(0,2fr)_280px]">
@@ -200,13 +200,13 @@ export function ContactSkeleton() {
 
 export function ProjectsSkeleton() {
 	return (
-		<section className="mx-auto max-w-7xl px-6 pt-10 pb-16">
+		<section className="mx-auto max-w-7xl px-4 pt-6 pb-14 sm:px-6 sm:pt-10 sm:pb-16">
 			<LoadingStatus label="Loading projects" />
 			<PageTitleSkeleton />
-			<div className="my-10 flex gap-3">
-				<Skeleton className="h-12 w-24 border-2 border-foreground/20" />
-				<Skeleton className="h-12 w-24 border-2 border-foreground/20" />
-				<Skeleton className="h-12 w-28 border-2 border-foreground/20" />
+			<div className="my-10 grid grid-cols-2 gap-3 sm:flex">
+				<Skeleton className="h-12 w-full border-2 border-foreground/20 sm:w-24" />
+				<Skeleton className="h-12 w-full border-2 border-foreground/20 sm:w-24" />
+				<Skeleton className="h-12 w-full border-2 border-foreground/20 sm:w-28" />
 			</div>
 			<div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
 				{PROJECTS.map((project) => (
@@ -219,17 +219,17 @@ export function ProjectsSkeleton() {
 
 export function ProjectDetailSkeleton() {
 	return (
-		<section className="mx-auto max-w-7xl px-6 pt-10 pb-16">
+		<section className="mx-auto max-w-7xl px-4 pt-6 pb-14 sm:px-6 sm:pt-10 sm:pb-16">
 			<LoadingStatus label="Loading project details" />
-			<div className="mb-8 flex items-center gap-3">
+			<div className="mb-8 flex min-w-0 items-center gap-2 overflow-hidden sm:gap-3">
 				<Skeleton className="h-5 w-16" />
 				<Skeleton className="size-4" />
 				<Skeleton className="h-5 w-24" />
 				<Skeleton className="size-4" />
-				<Skeleton className="h-8 w-36" />
+				<Skeleton className="h-8 min-w-0 flex-1 sm:w-36 sm:flex-none" />
 			</div>
 			<Skeleton className="h-16 w-full max-w-3xl sm:h-20" />
-			<Skeleton className="mt-8 aspect-16/8 w-full border-2 border-foreground/20" />
+			<Skeleton className="mt-8 aspect-4/3 w-full border-2 border-foreground/20 sm:aspect-16/8" />
 			<div className="mt-16 grid gap-16 lg:grid-cols-[2fr_1fr]">
 				<div className="space-y-3">
 					<Skeleton className="h-5 w-full" />

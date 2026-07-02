@@ -14,7 +14,7 @@ export function PageTitle({ eyebrow, title }: PageTitleProps) {
 				{eyebrow}
 			</p>
 
-			<h1 className="font-display text-7xl leading-[0.85] tracking-tight text-foreground uppercase md:text-8xl">
+			<h1 className="wrap-break-word font-display text-5xl leading-[0.88] tracking-tight text-foreground uppercase sm:text-6xl md:text-8xl">
 				{title}
 			</h1>
 		</div>

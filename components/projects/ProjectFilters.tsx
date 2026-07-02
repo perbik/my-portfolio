@@ -46,7 +46,10 @@ export function ProjectFilters({ selected }: ProjectFiltersProps) {
 	}
 
 	return (
-		<div className="flex flex-wrap gap-3" aria-busy={isPending}>
+		<div
+			className="grid grid-cols-2 gap-3 sm:flex sm:flex-wrap"
+			aria-busy={isPending}
+		>
 			{filters.map((filter) => {
 				const href =
 					filter === "All" ? "/projects" : `/projects?category=${filter}`;
@@ -55,6 +58,8 @@ export function ProjectFilters({ selected }: ProjectFiltersProps) {
 					<Button
 						key={filter}
 						asChild
+						size="md"
+						className="w-full sm:w-auto"
 						variant={optimisticSelected === filter ? "default" : "outline"}
 					>
 						<Link
